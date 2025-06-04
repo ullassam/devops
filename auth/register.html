@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>Register - E-Shop</title>
   <style>
     * {
@@ -11,12 +11,11 @@
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: linear-gradient(to right, #fddb92, #d1fdff);
-      margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .register-box {
@@ -104,11 +103,11 @@
   <div class="register-box">
     <h2>📝 Create Your Account</h2>
     <form id="register-form">
-      <input type="text" id="username" placeholder="👤 Username" required />
-      <input type="password" id="password" placeholder="🔒 Password" required />
+      <input type="text" id="username" placeholder="👤 Username" required/>
+      <input type="password" id="password" placeholder="🔒 Password" required/>
       <button type="submit">Register</button>
     </form>
-    <p>Already have an account? <a href="/login.html">Login here</a></p>
+    <p>Already have an account? <a href="/">Login here</a></p>
     <div id="message"></div>
   </div>
 
@@ -116,7 +115,7 @@
     document.getElementById("register-form").addEventListener("submit", async function(e) {
       e.preventDefault();
       const message = document.getElementById("message");
-      message.textContent = "";
+      message.textContent = ""; // Clear old message
 
       const res = await fetch("/register", {
         method: "POST",
@@ -131,7 +130,7 @@
         message.style.color = "green";
         message.textContent = "✅ Registered successfully! Redirecting to login...";
         setTimeout(() => {
-          window.location.href = "/login.html";
+          window.location.href = "/";
         }, 1500);
       } else {
         message.style.color = "red";
